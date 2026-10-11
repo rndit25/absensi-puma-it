@@ -1,0 +1,46 @@
+.brand-logo {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 50%;
+}
+.brand-logo-small { width: 42px; height: 42px; }
+.auth-hero-icon img {
+  position: relative;
+  z-index: 1;
+  width: min(190px, 65vw);
+  height: min(190px, 65vw);
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 12px 35px #003f5033;
+}
+.connection-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #568174;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.connection-status.is-loading { color: #607985; }
+.spinner-small { width: 13px; height: 13px; border-width: 2px; }
+.spinner-light { border-color: #ffffff66; border-top-color: #fff; }
+.session-howto {
+  margin: -7px 0 18px;
+  padding: 12px 15px;
+  border: 1px solid #dceef1;
+  border-radius: 9px;
+  background: #f2fafb;
+  color: #58717a;
+  font-size: 12px;
+  line-height: 1.6;
+}
+@media (max-width: 760px) {
+  .connection-status { font-size: 0; gap: 0; }
+  .connection-status .spinner-small, .connection-status .dot { width: 8px; height: 8px; }
+  .brand-logo { width: 43px; height: 43px; }
+}
