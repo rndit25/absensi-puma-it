@@ -120,10 +120,10 @@ alter table public.profiles enable row level security;
 alter table public.attendance_sessions enable row level security;
 alter table public.attendance_records enable row level security;
 
--- Profiles: anggota melihat dirinya sendiri; admin dapat melihat semua anggota.
-create policy "profiles_select_self_or_admin" on public.profiles
+-- Profiles: anggota melihat dirinya sendiri; ADMIN/BPH melihat roster untuk laporan absensi.
+create policy "profiles_select_self_or_session_manager" on public.profiles
 for select to authenticated
-using (id = (select auth.uid()) or public.is_admin());
+using (id = (select auth.uid()) or public.can_manage_attendance_sessions());
 
 create policy "profiles_update_admin" on public.profiles
 for update to authenticated
@@ -136,9 +136,9 @@ create policy "sessions_select_admin" on public.attendance_sessions
 for select to authenticated
 using (public.is_admin());
 
-create policy "records_select_self_or_admin" on public.attendance_records
+create policy "records_select_self_or_session_manager" on public.attendance_records
 for select to authenticated
-using (user_id = (select auth.uid()) or public.is_admin());
+using (user_id = (select auth.uid()) or public.can_manage_attendance_sessions());
 
 -- View untuk data sesi yang boleh ditampilkan anggota.
 create or replace view public.public_attendance_sessions

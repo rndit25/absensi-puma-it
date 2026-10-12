@@ -39,8 +39,29 @@
   font-size: 12px;
   line-height: 1.6;
 }
+.modal:has(.attendance-report) { width: min(100%, 900px); }
+.attendance-report { display: flex; flex-direction: column; gap: 15px; }
+.report-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.report-count { display: flex; flex-direction: column; gap: 4px; padding: 13px 15px; border: 1px solid #e5edf0; border-radius: 10px; background: #f8fbfc; }
+.report-count strong { color: #203b47; font: 800 23px Manrope, sans-serif; }
+.report-count span { color: #6f818a; font-size: 11px; }
+.present-count { border-color: #d3eee1; background: #f1fbf6; }
+.absent-count { border-color: #f4e1df; background: #fff8f7; }
+.report-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.report-list { min-width: 0; overflow: auto; max-height: 350px; padding: 14px; border: 1px solid #e7edf0; border-radius: 10px; }
+.report-list h3 { display: flex; justify-content: space-between; align-items: center; margin: 0 0 9px; color: #294451; font: 700 13px Manrope, sans-serif; }
+.report-list h3 span { padding: 4px 8px; border-radius: 20px; background: #edf4f6; color: #5d737c; font: 700 11px 'DM Sans', sans-serif; }
+.report-person { display: flex; align-items: center; gap: 9px; min-width: 0; padding: 9px 0; border-top: 1px solid #edf1f3; }
+.report-person>div:nth-child(2) { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
+.report-person strong { overflow: hidden; color: #344a57; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.report-person span:not(.status-tag) { overflow: hidden; color: #87969e; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.report-person time { color: #688078; font-size: 10px; white-space: nowrap; }
+.report-person .status-tag { flex-shrink: 0; }
+.report-empty { margin: 0; padding: 12px 0; color: #87969e; font-size: 11px; }
 @media (max-width: 760px) {
   .connection-status { font-size: 0; gap: 0; }
   .connection-status .spinner-small, .connection-status .dot { width: 8px; height: 8px; }
   .brand-logo { width: 43px; height: 43px; }
+  .report-columns { grid-template-columns: 1fr; }
+  .report-list { max-height: 260px; }
 }

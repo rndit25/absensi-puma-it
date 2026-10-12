@@ -60,6 +60,8 @@ Untuk membuat sesi, login dengan akun ber-role ADMIN atau BPH, buka menu **Sesi 
 
 Jika project Supabase sudah memakai schema lama, jalankan `supabase/migrations/20261011_bph_session_management.sql` sekali di SQL Editor agar pemeriksaan role BPH pada fungsi database ikut diperbarui. Akun anggota BPH harus diberi role `bph` oleh ADMIN sebelum dapat mengelola sesi.
 
+Laporan per sesi memerlukan akses roster dan catatan absensi untuk pengelola sesi. Untuk project yang sudah berjalan, jalankan `supabase/migrations/20261012_session_attendance_reports.sql` di SQL Editor. Laporan menampilkan anggota yang hadir dan anggota yang belum hadir; setelah sesi ditutup/kedaluwarsa, yang belum check-in ditandai tidak hadir.
+
 Untuk project Supabase yang sudah berjalan, jalankan juga `supabase/migrations/20261011_restrict_signup_email_domain.sql` sekali di SQL Editor. Ini menerapkan validasi domain email pada trigger database; aturan di form website saja dapat dilewati.
 
 ## 6. Deploy ke Vercel / Netlify / Cloudflare Pages
